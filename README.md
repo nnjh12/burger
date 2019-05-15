@@ -77,15 +77,15 @@ $.post("router",{ keys: values})
     location.reload();
   });
 ```
-  1. type
+  * type
     * GET
     * POST
     * PUT
     * DELETE
-  1. data
+  * data
     * for type of "POST" & "PUT"
     * format in object
-  1. location.reload() : refresh the current page
+  * location.reload() : refresh the current page
 
 **Back-End**
 ```
@@ -93,7 +93,7 @@ router.get("router", function(req,res){
   ...
 })
 ```
-  1. target
+  * target
     * router
       ```
       var router = express.Router()
@@ -102,23 +102,23 @@ router.get("router", function(req,res){
       ```
       var app = express()
       ```
-  1. method
+  * method
     * get
     * post
     * put
     * delete
-  1. Request
+  * Request
     * req.body (What user post)
     * req.params (What user passed in route)
     * req.params.id (What user passed in route "/:id")
-  1. Response
+  * Response
     * res.sendFile(path.join(__dirname, "index.html")) : need to require "path"
     * res.end()
     * res.status(500).end()
     * res.redirect("route")
     * res.json(data)
     * res.render("handlebar Filename",{keys:values}) : handlebar specific code
-  1. Example 
+  * Example 
     ```
     router.get("/", function (req, res) {
       burger.selectAll(function (data) {
@@ -135,9 +135,9 @@ connection.query("query", function(err,res){
   ...
 })
 ```
-  1. query
+  * query
     * SELECT * FROM table_name
     * INSERT INTO table_name (col1,col2 ..) VALUES (val1,val2 ..)
     * UPDATE table_name SET col = new_val where col = val;
-  1. function(err,res)
+  * function(err,res)
     * always err in first argument, res in second argument.
