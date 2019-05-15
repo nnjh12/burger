@@ -83,9 +83,19 @@ $.post("router",{ keys: values})
     * PUT
     * DELETE
   * data
-    * for type of "POST" & "PUT"
+    * for type of "POST" & "PUT" 
     * format in object
+    * In back-end, use key name to call it (ex.req.body.key_name)
   * location.reload() : refresh the current page
+
+```
+<form action="route" method="POST">
+	<textarea type="text" name="nameToCall"></textarea>
+	<button type="submit">Submit</button>
+</form>
+```
+  * Pure JS code using POST method
+  * name of textarea will be used to call in back-end (ex.req.body.nameToCall)
 
 **Back-End**
 ```
