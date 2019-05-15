@@ -52,7 +52,92 @@ Front-End
 * / : Home route. Get data from MySql and display them via handlebars. (GET)
 * /api/burgers : When user inserts or updates data, use this route. (PUT,POST)
 
-## Front-end process
+## What I learned
+1. Front-End
+```
+$.ajax({
+  url: "router"
+  type: "POST",
+  data: { keys: values }
+}).then(function () {
+    location.reload();
+  });
+```
+```
+$.ajax("router",{
+  type: "POST",
+  data: { keys: values }
+}).then(function () {
+    location.reload();
+  });
+```
+```
+$.post("router",{ keys: values})
+  .then(function () {
+    location.reload();
+  });
+```
+  * type
+    * GET
+    * POST
+    * PUT
+    * DELETE
+  * data
+    * for type of "POST" & "PUT"
+    * format in object
+  * location.reload() : refresh the current page
 
-
-## Back-end process
+1. Back-End
+```
+router.get("router", function(req,res){
+  ...
+})
+```
+  * target
+    * router
+      ```
+      var router = express.Router()
+      ```
+    * app
+      ```
+      var app = express()
+      ```
+  * method
+    * get
+    * post
+    * put
+    * delete
+  * Request
+    * req.body (What user post)
+    * req.params (What user passed in route)
+    * req.params.id (What user passed in route "/:id")
+  * Response
+    * res.sendFile(path.join(__dirname, "index.html")) : need to require "path"
+    * res.end()
+    * res.status(500).end()
+    * res.redirect("route")
+    * res.json(data)
+    * res.render("handlebar Filename",{keys:values}) : handlebar specific code
+  * Example 
+    ```
+    router.get("/", function (req, res) {
+      burger.selectAll(function (data) {
+        var handlebarObject = {
+          SqlReturnedArray: data
+        }
+        res.render("index", handlebarObject);
+      });
+    });
+    ```
+1. Database
+```
+connection.query("query", function(err,res){
+  ...
+})
+```
+  * query
+    * SELECT * FROM table_name
+    * INSERT INTO table_name (col1,col2 ..) VALUES (val1,val2 ..)
+    * UPDATE table_name SET col = new_val where col = val;
+  * function(err,res)
+    * always err in first argument, res in second argument.
