@@ -10,17 +10,17 @@ https://gentle-gorge-16249.herokuapp.com/
 1. Whenever a user submits a burger's name or clicks "Devour it!" button, it will be updated in a database.
 
 ## File Structure
-** Back-End **
+**Front-End**
+1. main.handlebars: HTML skeleton
+1. index.handlebars [VIEW]: HTML body skeleton using handlebars
+1. public/assets/js/burger.js : Front-end javascript including ajax call
+
+**Back-End**
 1. connection.js : MySql connection setup
 1. orm.js : ORM setup (require connection.js)
 1. burger.js [MODEL] : Call the ORM functions using burger specific input (require orm.js)
 1. burgers_controller.js [CONTROLLER] : Using burger model, set up for each router (require burger.js)
 1. server.js : Express code (require burgers_controller.js)
-
-** Front-End **
-1. main.handlebars: HTML skeleton
-1. index.handlebars [VIEW]: HTML body skeleton using handlebars
-1. public/assets/js/burger.js : Front-end javascript including ajax call
 
 ```
   burger
@@ -53,7 +53,7 @@ https://gentle-gorge-16249.herokuapp.com/
 * /api/burgers : When user inserts or updates data, use this route. (PUT,POST)
 
 ## What I learned
-** Front-End **
+**Front-End**
 ```
 $.ajax({
   url: "router"
@@ -87,7 +87,7 @@ $.post("router",{ keys: values})
     * format in object
   * location.reload() : refresh the current page
 
-** Back-End **
+**Back-End**
 ```
 router.get("router", function(req,res){
   ...
@@ -129,7 +129,7 @@ router.get("router", function(req,res){
       });
     });
     ```
-** Database **
+**Database**
 ```
 connection.query("query", function(err,res){
   ...
