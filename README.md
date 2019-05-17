@@ -150,4 +150,4 @@ connection.query("query", function(err,res){
     * INSERT INTO table_name (col1,col2 ..) VALUES (val1,val2 ..)
     * UPDATE table_name SET col = new_val where col = val;
   * function(err,res)
-    * always err in first argument, res in second argument.
+    * always err in first argument, res in second argument
